@@ -7,8 +7,8 @@ test:
         steps: 10
 
     data: 
-        image: "/userdata/MPII.zip/MPIIFaceGaze/Image"
-        label: "/userdata/MPII.zip/MPIIFaceGaze/Label"
+        image: "D:\\datasets\\MPIIFaceGaze_GazePoint\\Image"
+        label: "D:\\datasets\\MPIIFaceGaze_GazePoint\\Label"
         name: mpii
         header: True
         isFolder: True

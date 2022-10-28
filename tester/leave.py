@@ -104,12 +104,14 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Pytorch Basic Model Training')
 
+    # 训练集配置文件
     parser.add_argument('-s', '--source', type=str,
                         help = 'config path about training')
 
     parser.add_argument('-t', '--target', type=str,
                         help = 'config path about test')
 
+    # 设置训练的人
     parser.add_argument('-p', '--person', type=int,
                         help = 'the num of subject for test')
 
