@@ -2,7 +2,7 @@
 train:
 
     params:
-        batch_size: 2
+        batch_size: 128
         epoch: 80
         lr: 0.0005
         decay: 0.5
@@ -16,8 +16,8 @@ train:
         step: 10
 
     data:
-        image: "D:\\datasets\\MPIIFaceGaze_GazePoint\\Image"
-        label: "D:\\datasets\\MPIIFaceGaze_GazePoint\\Label"
+        image: "C:\\gaze\\datasets\\MPIIFaceGaze_GazePoint\\Image"
+        label: "C:\\gaze\\datasets\\MPIIFaceGaze_GazePoint\\Label"
         header: True
         name: mpii
         isFolder: True

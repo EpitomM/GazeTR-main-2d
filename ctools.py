@@ -3,7 +3,7 @@ import sys
 import time
 import os
 import json
-from easydict import EasyDict as edict
+# from easydict import EasyDict as edict
 
 class TimeCounter:
     # Create an time counter.

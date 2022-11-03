@@ -71,9 +71,9 @@ class Model(nn.Module):
         maps = 32
         nhead = 8
         dim_feature = 7*7
-        dim_feedforward=512
+        dim_feedforward = 512
         dropout = 0.1
-        num_layers=6
+        num_layers = 6
 
         self.base_model = resnet18(pretrained=False, maps=maps)
 
@@ -120,7 +120,7 @@ class Model(nn.Module):
   
         feature = feature.permute(1, 2, 0)
 
-        feature = feature[:,:,0]
+        feature = feature[:, :, 0]
 
         gaze = self.feed(feature)
         
