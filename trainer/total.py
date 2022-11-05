@@ -20,15 +20,17 @@ def main(config):
     #  ===================>> Setup <<=================================
 
     # 配置文件参数设置
+    # importlib.import_module：导入一个模块。
+    # 导入读取数据文件：reader/read_data.py
     dataloader = importlib.import_module("reader." + config.reader)
     device = config.device
     # torch.cuda.set_device(device)
     cudnn.benchmark = True
-    # 数据集路径
+    # 数据集存储路径
     data = config.data
-    # 结果保存路径
+    # 训练结果保存路径
     save = config.save
-    # 训练参数
+    # 训练过程参数
     params = config.params
 
 
@@ -173,13 +175,11 @@ def main(config):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Pytorch Basic Model Training')
-
-    # 训练集配置文件
     parser.add_argument('-s', '--train', type=str,
                         help='The source config for training.')
-
     args = parser.parse_args()
 
+    # 加载配置文件。config 类型为 EasyDict
     config = edict(yaml.load(open(args.train), Loader=yaml.FullLoader))
 
     print("=====================>> (Begin) Training params << =======================")
