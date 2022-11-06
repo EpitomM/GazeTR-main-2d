@@ -8,11 +8,17 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 
 def Decode_MPII(line):
+    # Face Left Right Grid Origin whicheye 2DPoint HeadRot HeadTrans ratio FaceCorner LeftEyeCorner RightEyeCorner
+    #  0    1    2      3    4      5        6      7           8       9       10          11          12
     anno = edict()
+    # 人脸，左眼，右眼图片的存储路径
     anno.face, anno.lefteye, anno.righteye = line[0], line[1], line[2]
+    # 将人脸网格图片的存储路径当作 name
     anno.name = line[3]
 
+    # (whicheye, 2DPoint)，后续没有使用这两个值
     anno.gaze3d, anno.head3d = line[5], line[6]
+    # (HeadRot, HeadTrans)  后续将这 HeadRot 值当作标签
     anno.gaze2d, anno.head2d = line[7], line[8]
     return anno
 
