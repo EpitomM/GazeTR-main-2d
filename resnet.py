@@ -90,8 +90,7 @@ class ResNet(nn.Module):
     def __init__(self, block, layers, maps=32):
         self.inplanes = 64
         super(ResNet, self).__init__()
-        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3,
-                               bias=False)
+        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
         self.bn1 = nn.BatchNorm2d(64)
         self.relu = nn.ReLU(inplace=True)
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
@@ -131,16 +130,16 @@ class ResNet(nn.Module):
 
         return nn.Sequential(*layers)
 
-    def forward(self, x):
-        x = self.conv1(x)
+    def forward(self, x):       # x: (224, 224, 3)
+        x = self.conv1(x)       # (224, 224, 3) -> (112, 112, 64)
         x = self.bn1(x)
         x = self.relu(x)
-        x = self.maxpool(x)
+        x = self.maxpool(x)     # (112, 112, 64) -> (56, 56, 64)
         x = self.layer1(x)
-        x = self.layer2(x)
-        x = self.layer3(x)
-        x = self.layer4(x)      
-        x = self.conv(x)
+        x = self.layer2(x)      # (56, 56, 64) -> (28, 28, 128)
+        x = self.layer3(x)      # (28, 28, 128) -> (14, 14, 256)
+        x = self.layer4(x)      # (14, 14, 256) -> (7, 7, 512)
+        x = self.conv(x)        # (7, 7, 512) -> (7, 7, 32)
         return x
 
 
