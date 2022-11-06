@@ -7,8 +7,8 @@ test:
         steps: 10
 
     data: 
-        image: "D:\\datasets\\MPIIFaceGaze_GazePoint\\Image"
-        label: "D:\\datasets\\MPIIFaceGaze_GazePoint\\Label"
+        image: "C:\\gaze\\datasets\\MPIIFaceGaze_GazePoint\\Image"
+        label: "C:\\gaze\\datasets\\MPIIFaceGaze_GazePoint\\Label"
         name: mpii
         header: True
         isFolder: True
@@ -17,7 +17,7 @@ test:
 
     device: 0
 
-    reader: reader
+    reader: read_data
 
 # dropout = 0
 # dim_feed = 512

@@ -24,9 +24,9 @@ class TimeCounter:
       return np.max(rest * used, 0)
          
 
-def readfolder(data, specific=None, reverse=False):
+def readLabelFolder(data, specific=None, reverse=False):
 
-    """" 
+    """"
     Traverse the folder 'data.label' and read data from all files in the folder.
     
     Specific is a list, specify the num of extracted file.
@@ -41,6 +41,7 @@ def readfolder(data, specific=None, reverse=False):
     folder = folders
     if specific is not None:
         if reverse:
+            # np.arange() 主要用于生成数组
             num = np.arange(len(folders))
             specific = list(filter(lambda x: x not in specific, num))
         

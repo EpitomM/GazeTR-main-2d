@@ -23,7 +23,7 @@ def main(train, test):
   
 
     # ==============================> Read Data <======================== 
-    data, folder = ctools.readfolder(data, [test.person])
+    data, folder = ctools.readLabelFolder(data, [test.person])
 
     testname = folder[test.person] 
 
@@ -106,14 +106,14 @@ if __name__ == "__main__":
 
     # 训练集配置文件
     parser.add_argument('-s', '--source', type=str,
-                        help = 'config path about training')
+                        help='config path about training')
 
     parser.add_argument('-t', '--target', type=str,
-                        help = 'config path about test')
+                        help='config path about test')
 
     # 设置训练的人
     parser.add_argument('-p', '--person', type=int,
-                        help = 'the num of subject for test')
+                        help='the num of subject for test')
 
     args = parser.parse_args()
 

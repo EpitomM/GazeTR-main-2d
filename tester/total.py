@@ -24,7 +24,7 @@ def main(train, test):
 
     # ===============================> Read Data <=========================
     if data.isFolder: 
-        data, _ = ctools.readfolder(data) 
+        data, _ = ctools.readLabelFolder(data)
 
     print(f"==> Test: {data.label} <==")
     dataset = reader.loader(data, 32, num_workers=4, shuffle=False)
